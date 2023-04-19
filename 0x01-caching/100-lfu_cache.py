@@ -34,7 +34,8 @@ class LFUCache(BaseCaching):
 
     def get(self, key):
         """Gets from the cache"""
-        if self.order.get(key) is None and self.cache_data.get(key) is not None:
+        if (self.order.get(key) is None
+                and self.cache_data.get(key) is not None):
             self.order[key] = 0
         elif self.cache_data.get(key) is not None:
             self.order[key] += 1
