@@ -22,7 +22,7 @@ def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-@app.route('/')
+@app.route('/', strict_slashes=False)
 def index():
     """Index route"""
     return render_template("3-index.html")
